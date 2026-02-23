@@ -230,7 +230,7 @@ function rejectedRendering() {
                     <i class="fa-solid fa-trash-can cursor-pointer deleteBtn" ></i>
                 </div>
             `
-        
+        rejectedSection.appendChild(div)
     }
 }
 
