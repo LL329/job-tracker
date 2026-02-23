@@ -158,4 +158,79 @@ function interviewRendering() {
     for (const interview of interviewList) {
         // console.log(interview);
 
-    
+        const div = document.createElement('div')
+        div.className = 'flex justify-between p-6 bg-white shadow jobCard'
+        div.innerHTML = `
+                <div  class="space-y-3 ">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">${interview.jobName}</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">${interview.jobTitle}</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">
+                        ${interview.jobInfo}
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">${interview.jobStatus}</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">${interview.jobDescrip}</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary rejectedBtn">REJECTED</button>
+
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-trash-can cursor-pointer deleteBtn"></i>
+                </div>
+            `
+        interviewSection.appendChild(div)
+    }
+}
+function rejectedRendering() {
+
+    if (rejectedList.length === 0) {
+        rejectedSection.innerHTML = `
+        <div class="flex flex-col items-center justify-center md:h-64 bg-gray-50 rounded-lg shadow-md">
+                <!-- Icon -->
+               <img src="assests/assignment_7959593 1.png" alt="">
+
+                <!-- Heading -->
+                <h2 class="text-gray-700 text-xl font-semibold mb-2">No jobs available</h2>
+
+                <!-- Description -->
+                <p class="text-gray-500 text-sm text-center">Check back soon for new job opportunities</p>
+            </div>
+        `
+        return;
+    }
+    rejectedSection.innerHTML = ''
+
+    for (const rejected of rejectedList) {
+
+        const div = document.createElement('div')
+        div.className = 'flex justify-between p-6 bg-white shadow jobCard'
+        div.innerHTML = `
+                <div class="space-y-3">
+                    <div>
+                        <h1 class="text-xl font-bold jobName">${rejected.jobName}</h1>
+                        <p class="text-semibold text-sm text-black/70 jobTitle">${rejected.jobTitle}</p>
+                    </div>
+                    <p class="text-semibold text-sm text-black/70 jobInfo">
+                        ${rejected.jobInfo}
+                    <div>
+                        <p class="bg-gray-200 px-3 rounded-sm inline-block text-sm font-semibold jobStatus">${rejected.jobStatus}</p>
+                        <p class="text-semibold text-sm text-black/70 jobDescrip">${rejected.jobDescrip}</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline btn-success interviewBtn">INTERVIEW</button>
+                        <button class="btn btn-outline btn-secondary rejectedBtn">REJECTED</button>
+
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-trash-can cursor-pointer deleteBtn" ></i>
+                </div>
+            `
+        
+    }
+}
+
